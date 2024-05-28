@@ -31,16 +31,16 @@ dotnet run
 * POST /api/auth/login: Endpoint for user authentication. Requires email and password.
 * POST /api/auth/register: Endpoint for user registration. Requires name, email, and password
 
-   ### Dependencies
-  * Microsoft.AspNetCore.Authentication.JwtBearer: Handles JWT authentication.
-  * Microsoft.EntityFrameworkCore: For database operations with Entity Framework Core.
-  * BCrypt.Net: Utilized for secure password hashing.
-     ### Technologies Used
-    * C#
-    * ASP.NET Core
-    * Entity Framework Core
-    * JWT (JSON Web Tokens
-    * SQL Server
-    ### License
-    This project is licensed under the MIT License.
+ ### Dependencies
+ * Microsoft.AspNetCore.Authentication.JwtBearer: Handles JWT authentication.
+ * Microsoft.EntityFrameworkCore: For database operations with Entity Framework Core.
+ * BCrypt.Net: Utilized for secure password hashing.
+ ### Technologies Used
+  * C#
+  * ASP.NET Core
+  * Entity Framework Core
+  * JWT (JSON Web Tokens
+  * SQL Server
+ ### License
+ This project is licensed under the MIT License.
 
