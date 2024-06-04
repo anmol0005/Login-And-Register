@@ -1,45 +1,42 @@
-# JWT Authentication with Entity Framework Core in C#
-This project demonstrates a simple implementation of JWT (JSON Web Tokens) authentication for login and registration functionalities using Entity Framework Core in C#.
-# Features
-* Login: Users can authenticate by providing their email and password. Upon successful authentication, a JWT token is generated and returned.
-* Registration: New users can create accounts by supplying their details such as name, email, and password.
-* JWT Token: JWT tokens are utilized for authentication, ensuring secure communication between client and server.
-* Entity Framework Core: The application interacts with the database using Entity Framework Core, simplifying data management.
+# Two-Factor Authentication with Microsoft Authentication in C#
+# Overview
+This project illustrates the implementation of two-factor authentication (2FA) using Microsoft Authentication in a C# application. 2FA enhances security by requiring users to provide a second form of authentication, usually a code sent to their registered device, in addition to their username and password.
 
-  ## Setup Instructions
-  ### Clone the Repository
-  1 Clone the Repository: Clone this repository to your local machine.
+# Prerequisites
+* .NET Core or .NET Framework
+* Visual Studio or another C# IDE
+# Setup to Implement 2FA
 
 ```bash
 git clone https://github.com/your_username/your_project.git
 ```
-2 Database Configuration: Ensure you have SQL Server installed and running. Update the connection string in the appsettings.json file with your database credentials.
+ ## 1 Choose 2FA Method
+  Decide which method(s) of 2FA you want to support. Common methods include SMS, email, authenticator apps, or hardware tokens.
+ ## 2. Add Required Packages:
+  Ensure that the following NuGet packages are installed in your ASP.NET Core project:
+  *  Microsoft.AspNetCore.All: This package includes a set of core libraries for ASP.NET Core applications.
+  * Microsoft.EntityFrameworkCore.Tools: This package provides Entity Framework Core tools for migrations and database management.
+  * Microsoft.NETCore.App: This package contains the .NET Core runtime and library.
+  * Microsoft.VisualStudio.Web.CodeGeneration.Design: This package provides design-time support for scaffolding controllers and views in Visual Studio.
+ ## 3 Connection String:
 ```bash
 "ConnectionStrings": {
     "DefaultConnection": "Server=your_server;Database=your_database;User=your_username;Password=your_password;"
 }
 ```
-3 Run Migrations: Execute Entity Framework Core migrations to create the required database schema.
-```bash
-dotnet ef database update
-```
-4 Start the Application: Launch the application using the following command:
-```bash
-dotnet run
-```
-5 API Endpoints:
-* POST /api/auth/login: Endpoint for user authentication. Requires email and password.
-* POST /api/auth/register: Endpoint for user registration. Requires name, email, and password
+## 4 Update Identity Configuration:
+If using ASP.NET Core Identity, configure it to support 2FA. This may involve enabling 2FA options in Identity settings.
+## 5 Generate and Verify Codes:
+Implement logic to generate and verify 2FA codes for the chosen method(s). This typically involves generating a random code, sending it to the user via the selected method, and then verifying the code when the user submits it.
+## 6  UI Changes
+Modify the user interface to accommodate the 2FA flow. Add an additional step in the login process where the user enters their 2FA code.
+## 7 Enforce 2FA
+Decide when and where to enforce 2FA. You may require 2FA for certain sensitive actions, such as changing account settings or accessing sensitive data.
 
- ### Dependencies
- * Microsoft.AspNetCore.Authentication.JwtBearer: Handles JWT authentication.
- * Microsoft.EntityFrameworkCore: For database operations with Entity Framework Core.
- * BCrypt.Net: Utilized for secure password hashing.
  ### Technologies Used
   * C#
   * ASP.NET Core
   * Entity Framework Core
-  * JWT (JSON Web Tokens
   * SQL Server
  ### License
  This project is licensed under the MIT License.
