@@ -1,43 +1,58 @@
-# Two-Factor Authentication with Microsoft Authentication in C#
-# Overview
-This project illustrates the implementation of two-factor authentication (2FA) using Microsoft Authentication in a C# application. 2FA enhances security by requiring users to provide a second form of authentication, usually a code sent to their registered device, in addition to their username and password.
+# JWT Authentication with React, Node.js, and MongoDB
 
-# Prerequisites
-* .NET Core or .NET Framework
-* Visual Studio or another C# IDE
-# Setup to Implement 2FA
+## Overview
+This project implements JWT (JSON Web Token) authentication in a full-stack application using React.js for the frontend, Node.js for the backend, and MongoDB for the database. JWT authentication provides a secure way to authenticate users and authorize access to protected routes.
 
-```bash
-git clone https://github.com/your_username/your_project.git
-```
- ## 1 Choose 2FA Method
-  Decide which method(s) of 2FA you want to support. Common methods include SMS, email, authenticator apps, or hardware tokens.
- ## 2. Add Required Packages:
-  Ensure that the following NuGet packages are installed in your ASP.NET Core project:
-  *  Microsoft.AspNetCore.All: This package includes a set of core libraries for ASP.NET Core applications.
-  * Microsoft.EntityFrameworkCore.Tools: This package provides Entity Framework Core tools for migrations and database management.
-  * Microsoft.NETCore.App: This package contains the .NET Core runtime and library.
-  * Microsoft.VisualStudio.Web.CodeGeneration.Design: This package provides design-time support for scaffolding controllers and views in Visual Studio.
- ## 3 Connection String:
-```bash
-"ConnectionStrings": {
-    "DefaultConnection": "Server=your_server;Database=your_database;User=your_username;Password=your_password;"
-}
-```
-## 4 Update Identity Configuration:
-If using ASP.NET Core Identity, configure it to support 2FA. This may involve enabling 2FA options in Identity settings.
-## 5 Generate and Verify Codes:
-Implement logic to generate and verify 2FA codes for the chosen method(s). This typically involves generating a random code, sending it to the user via the selected method, and then verifying the code when the user submits it.
-## 6  UI Changes
-Modify the user interface to accommodate the 2FA flow. Add an additional step in the login process where the user enters their 2FA code.
-## 7 Enforce 2FA
-Decide when and where to enforce 2FA. You may require 2FA for certain sensitive actions, such as changing account settings or accessing sensitive data.
+## Features
+- User signup with validation
+- User login with validation
+- Password encryption using bcrypt
+- Token generation and verification with JWT
+- Protected routes for authenticated users
 
- ### Technologies Used
-  * C#
-  * ASP.NET Core
-  * Entity Framework Core
-  * SQL Server
- ### License
- This project is licensed under the MIT License.
+## Technologies Used
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **Encryption**: bcrypt
+- **Validation**: Validator.js
 
+## Setup Instructions
+1. Clone the repository from GitHub.
+2. Install dependencies for both frontend and backend using `npm install` in the respective directories.
+3. Set up MongoDB database and update the connection URI in the backend.
+4. Create a `.env` file in the backend directory and add environment variables for JWT_SECRET, JWT_EXPIRES_IN, and JWT_COOKIE_EXPIRES_IN.
+5. Run the backend server using `npm start` or `node server.js`.
+6. Run the frontend server using `npm start`.
+7. Access the application in your browser at `http://localhost:3000`.
+
+## Usage
+1. Signup: Provide name, email, and password. Password should be at least 8 characters long. Confirm the password.
+2. Login: Provide registered email and password to log in.
+3. Protected Routes: Access protected routes after successful login.
+4. Logout: Clear authentication token and log out.
+
+## Folder Structure
+- **backend**: Contains backend Node.js code.
+  - **controllers**: Contains controller functions for authentication.
+  - **models**: Defines MongoDB schemas for user data.
+  - **routes**: Defines API routes for user authentication.
+  - **middlewares**: Contains middleware functions for error handling and authentication.
+  - **server.js**: Entry point for the backend server.
+  - **frontend**: Contains frontend React.js code.
+  - **src/components**: Contains React components for signup, login, and other views.
+  - **src/utils**: Utility functions for making API requests and handling responses.
+  - **src/App.js**: Main component for routing and managing state.
+
+
+## Acknowledgments
+- https://nodejs.org/
+- https://reactjs.org/
+- https://expressjs.com/
+- https://www.mongodb.com/
+- https://jwt.io/
+- https://www.npmjs.com/package/bcrypt
+- https://github.com/validatorjs/validator.js
+
+Feel free to customize this README according to your project's specific details and requirements.
